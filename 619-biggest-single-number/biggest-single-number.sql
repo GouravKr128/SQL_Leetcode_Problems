@@ -1,4 +1,13 @@
 # Write your MySQL query statement below
+SELECT MAX(num) AS num
+FROM (
+    SELECT num
+    FROM MyNumbers
+    GROUP BY num
+    HAVING COUNT(num) = 1
+) AS num;
+
+/*
 with tbl as(
 select num
 from mynumbers
@@ -11,3 +20,4 @@ case
     else max(num)
 end as num
 from tbl
+*/
