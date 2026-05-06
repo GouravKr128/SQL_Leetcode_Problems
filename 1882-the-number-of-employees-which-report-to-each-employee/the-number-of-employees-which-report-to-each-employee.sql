@@ -1,4 +1,4 @@
-# Write your MySQL query statement below 
+# Write your MySQL query statement below   
 with tbl as( 
     select reports_to, count(employee_id) as 'reports_count', round(avg(age)) as 'average_age'
     from employees
