@@ -1,5 +1,13 @@
 # Write your MySQL query statement below
-# Method 2
+# Method 3
+select id, 
+    CASE 
+        WHEN id % 2 = 0 THEN LAG(student) OVER(order by id) 
+        ELSE COALESCE(LEAD(student) OVER(order by id), student)
+    END AS student
+from Seat
+
+/* Method 2
 
 with tbl as (
 select *, lag(student) over() as d, lead(student) over() as u
@@ -14,6 +22,7 @@ select id, case
 from tbl
 order by id asc
 
+*/
 
 /* Method 1
 
