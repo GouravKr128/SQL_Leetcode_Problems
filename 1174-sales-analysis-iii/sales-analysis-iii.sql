@@ -13,3 +13,15 @@ select p.product_id, product_name
 from product p
 inner join tbl t
 on p.product_id = t.product_id
+
+/*
+Method 2
+
+SELECT p.product_id, p.product_name
+FROM Product AS p
+JOIN Sales AS s
+ON p.product_id = s.product_id
+GROUP BY p.product_id
+HAVING MIN(s.sale_date) >= '2019-01-01' AND MAX(s.sale_date) <= '2019-03-31';
+
+*/
